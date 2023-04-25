@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
+import './PageCSS/login.scss';
 
 const Register = () => {
     const [username,setusername] = useState("");
@@ -18,12 +19,21 @@ const Register = () => {
     }
 
   return (
-    <div>
-      <input type="text" placeholder='username' onChange={(e)=>{setusername(e.target.value
-        )}}/> 
-      <input type="text" placeholder='password' onChange={(e)=>{setpassword(e.target.value
-        )}}/>
+    <div className='container'>
+      <div className="heading">
+        <h2>Register</h2>
+      </div>
+      <div className="input_element">
+        <input type="text" placeholder='username' onChange={(e)=>{setusername(e.target.value
+          )}}/> 
+      </div>
+      <div className="input_element">
+        <input type="text" placeholder='password' onChange={(e)=>{setpassword(e.target.value
+          )}}/>
+      </div>
+      <div className="buttons">
         <button onClick={handelSubmit}>Register</button>  
+      </div>
     </div>
   )
 }

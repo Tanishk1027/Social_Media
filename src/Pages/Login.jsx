@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import './PageCSS/login.scss';
 
 import {useSelector,useDispatch} from "react-redux"
 
@@ -36,14 +37,23 @@ const Login = () => {
     }
 
   return (
-    <div>
-      <input type="text" placeholder='usename' onChange={(e)=>{setusername(e.target.value)}}/> 
-      <input type="password" placeholder='password' onChange={(e)=>{setpassword(e.target.value
-        )}}/>
+    <div className='container'>
+      <div className="heading">
+        <h2>Login</h2>
+      </div>
+      <div className="input_element">
+        <input type="text" placeholder='username' onChange={(e)=>{setusername(e.target.value)}}/> 
+      </div>
+      <div className="input_element">
+        <input type="password" placeholder='password' onChange={(e)=>{setpassword(e.target.value
+          )}}/>
+      </div>
+      <div className="buttons">
         <button onClick={handelSubmit}>Login</button>
         <button>
-        <Link to="/">Home</Link>
+        <Link to="/" className='btn-link'>Home</Link>
         </button>
+      </div>
     </div>
   )
 }
