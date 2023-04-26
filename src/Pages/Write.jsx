@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { useContext, useState } from 'react'
 import './PageCSS/login.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faImage } from '@fortawesome/fontawesome-free-solid';
 
 export default function Write() {
 //    const [title,setTitle] = useState("");
@@ -38,24 +40,27 @@ export default function Write() {
   return (
     <div className='write container'>
       <div className="write-first">
-        {file&&
-          <img src={URL.createObjectURL(file)} alt="" className='writeImage'/> 
+        {file &&
+            <img src ={URL.createObjectURL(file)} alt="" className='writeImage'/>            
         }
       </div>
       <div className="write-second">
-      <form className="writeForm" onSubmit={handleSubmit}>
-          <div className="writeFormGroup">
-              <label for="fileInput">
+        <form className="writeForm" onSubmit={handleSubmit}>
+          <div className="writeFormGroup" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <label for="fileInput">
               {/* <i className="writeIcon fas fa-plus"></i> */}
-                add photo
-              </label>
-              <input type="file" name='fileInput' id="fileInput" style={{display:"none"}} onChange={e=>setFile(e.target.files[0])}/>
-          </div>
-          <div className="writeFormGroup input_element">
-              <textarea placeholder='Tell your story...' type='text' className='writeInput writeText' onChange={e=>setDesc(e.target.value)}></textarea>
-          </div>
-          <button className='writeSubmit' type="submit">Publish</button>
-      </form>
+                  <FontAwesomeIcon icon={faImage} color='white' style={{fontSize:"20px"}}/>
+                 <span style={{color:"white",marginLeft:"10px" ,fontSize:"20px",fontFamily:"sans-serif",cursor:"pointer"}}>Add photo</span> 
+                </label>
+                <input type="file" name='fileInput' id="fileInput" style={{display:"none"}} onChange={e=>setFile(e.target.files[0])}/>
+            </div>
+            <div className="writeFormGroup input_element">
+                <textarea placeholder='Tell your story...' type='text' className='writeInput writeText' onChange={e=>setDesc(e.target.value)}></textarea>
+            </div>
+          <div className="buttons" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+              <button className='writeSubmit' type="submit">Publish</button>
+            </div>
+        </form>
       </div>
       
     </div>
