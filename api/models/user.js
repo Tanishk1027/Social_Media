@@ -10,9 +10,6 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    profile_pic:{
-       type: String,
-    },
     friends:{
         type: Array,
         default:[] 

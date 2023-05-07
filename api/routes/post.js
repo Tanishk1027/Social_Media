@@ -19,12 +19,12 @@ router.post("/",async(req,res)=>{
 router.post("/friends_posts",async(req,res)=>{
     
      try{
-        console.log(req.body.user);
         var posts = [];
         const user = await User.findOne({username: req.body.user});
         const friends = user.friends;
         var i = 0;
-        var curr_posts;
+        var curr_posts = await Post.find({username: req.body.user});
+        posts = posts.concat(curr_posts);
         for(i=0;i<friends.length;i++){
             curr_posts = await Post.find({username: friends[i]});
             posts = posts.concat(curr_posts);
